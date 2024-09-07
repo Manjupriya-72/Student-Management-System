@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        #header {
+            background-color:grey;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        #classForm, #studentForm, #resultForm {
+            display: none;
+            background-color: #e5f4f9;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: white;
+        }
+        h2 {
+            color: #333;
+            cursor: pointer;
+        }
+        h2:hover {
+            color: #007bff;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            display: block;
+            margin-top: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        input[type="text"], input[type="int"], input[type="ratio"], input[type="textarea"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>ADMIN DASHBOARD</h1>
+    </div>
+    <div id="container">
+        <h2 onclick="showClassForm()">ADD CLASSES</h2>
+        <div id="classForm">
+            <form method="post" action="class.php">
+                <label for="className">Class Name:</label>
+                <input type="text" id="className" name="className">
+                <br><br>
+                <label for="classCode">Section:</label>
+                <input type="text" id="classCode" name="section">
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <a href="show_classes.php"><h2>SHOW CLASSES</h2></a>
+
+        <h2 onclick="showStudentForm()">ADD STUDENTS</h2>
+        <div id="studentForm">
+            <form method="post" action="student.php">
+                <label for="Student Id">Student Id:</label>
+                <input type="int" id="student_id" name="student_id">
+                <br><br>
+                <label for="Student Name">Student Name:</label>
+                <input type="text" id="student_Name" name="Student_Name">
+                <br><br>
+                <label for="Gender">Gender:</label>
+                <input type="ratio" id="Gender" name="Gender">
+                <br><br>
+                <label for="Adddress">Address:</label>
+                <input type="textarea" id="Address" name="Address">
+                <br><br>
+                <label for="class">Class:</label>
+                <input type="text" id="class" name="class">
+                <br><br>
+                <label for="section">Section:</label>
+                <input type="text" id="Section" name="Section">
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <a href="show_students.php"><h2>SHOW STUDENTS</h2></a>
+
+        <h2 onclick="showResultForm()">RESULT</h2>
+        <div id="resultForm">
+            <form method="post" action="result_form.php">
+                <label for="Student Id">Student Id:</label>
+                <input type="int" id="student_id" name="student_id">
+                <br><br>
+                <label for="Student Name">Student Name:</label>
+                <input type="text" id="student_Name" name="Student_Name">
+                <br><br>
+                <label for="class">Class:</label>
+                <input type="text" id="class" name="class">
+                <br><br>
+                <label for="section">Section:</label>
+                <input type="text" id="Section" name="Section">
+                <br><br>
+                <label for="Average">Average:</label>
+                <input type="int" id="Average" name="Average">
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <a href="show_result.php"><h2>SHOW RESULTS</h2></a>
+
+        <a href="logout.php">Logout</a>
+    </div>
+
+    <script>
+        function showClassForm() {
+            const classForm = document.getElementById("classForm");
+            if (classForm.style.display === "none") {
+                classForm.style.display = "block";
+            } else {
+                classForm.style.display = "none";
+            }
+        }
+        function showStudentForm() {
+            const studentForm = document.getElementById("studentForm");
+            if (studentForm.style.display === "none") {
+                studentForm.style.display = "block";
+            } else {
+                studentForm.style.display = "none";
+            }
+        }
+        function showResultForm() {
+            const resultForm = document.getElementById("resultForm");
+            if (resultForm.style.display === "none") {
+                resultForm.style.display = "block";
+            } else {
+                resultForm.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
